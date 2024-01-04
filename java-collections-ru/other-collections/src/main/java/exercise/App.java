@@ -10,11 +10,8 @@ public class App {
     public static LinkedHashMap<String, String> genDiff(Map<String, Object> firstMap, Map<String, Object> secondMap) {
         LinkedHashMap<String, String> resultMap = new LinkedHashMap<>();
 
-        var res1 = firstMap.keySet();
-        var res2 = secondMap.keySet();
-        TreeSet<String> resultSet = new TreeSet<>();
-        resultSet.addAll(res1);
-        resultSet.addAll(res2);
+        TreeSet<String> resultSet = new TreeSet<>(firstMap.keySet());
+        resultSet.addAll(secondMap.keySet());
 
         for (var key : resultSet) {
             if (firstMap.containsKey(key) && !(secondMap.containsKey(key))) {
