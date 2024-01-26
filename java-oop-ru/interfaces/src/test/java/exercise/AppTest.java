@@ -1,13 +1,14 @@
 package exercise;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
 
 class AppTest {
-
     @Test
     void testBuildApartmentsList1() {
         List<Home> apartments = new ArrayList<>(List.of(
@@ -57,6 +58,28 @@ class AppTest {
     }
 
     // BEGIN
-    
+
+    @Test
+    void testReversedSequence() {
+
+        ReversedSequence test = new ReversedSequence("IvanFromVRN");
+        String testActual = test.reverse();
+
+        var actualTestChar = testActual.charAt(1);
+        var actualTestSubString = testActual.subSequence(1, 4);
+        var actualTestLength = testActual.length();
+        var actualTestToString = testActual.toString();
+
+        var expected1 = 'R';
+        var expected2 = "RVm";
+        var expected3 = 11;
+        var expected4 = "NRVmorFnavI";
+
+        assertThat(actualTestChar).isEqualTo(expected1);
+        assertThat(actualTestSubString).isEqualTo(expected2);
+        assertThat(actualTestLength).isEqualTo(expected3);
+        assertThat(actualTestToString).isEqualTo(expected4);
+
+    }
     // END
 }
