@@ -62,23 +62,23 @@ class AppTest {
     @Test
     void testReversedSequence() {
 
-        ReversedSequence test = new ReversedSequence("IvanFromVRN");
-        String testActual = test.reverse();
+        CharSequence  test = new ReversedSequence("IvanFromVRN");
+        //String testActual = test.reverse();
 
-        var actualTestChar = testActual.charAt(1);
-        var actualTestSubString = testActual.subSequence(1, 4);
-        var actualTestLength = testActual.length();
-        var actualTestToString = testActual.toString();
+        var actualTestChar = test.charAt(1);
+        var actualTestSubString = test.subSequence(1, 4);
+        var actualTestLength = test.length();
+        var actualTestToString = test.toString();
 
-        var expected1 = 'R';
-        var expected2 = "RVm";
-        var expected3 = 11;
-        var expected4 = "NRVmorFnavI";
+        var expected1 = "NRVmorFnavI";
+        var expected2 = 'R';
+        var expected3 = "RVm";
+        var expected4 = 11;
 
-        assertThat(actualTestChar).isEqualTo(expected1);
-        assertThat(actualTestSubString).isEqualTo(expected2);
-        assertThat(actualTestLength).isEqualTo(expected3);
-        assertThat(actualTestToString).isEqualTo(expected4);
+        assertThat(actualTestToString).isEqualTo(expected1);
+        assertThat(actualTestChar).isEqualTo(expected2);
+        assertThat(actualTestSubString).isEqualTo(expected3);
+        assertThat(actualTestLength).isEqualTo(expected4);
 
     }
     // END

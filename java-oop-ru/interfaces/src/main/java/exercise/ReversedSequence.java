@@ -3,14 +3,11 @@ package exercise;
 public class ReversedSequence implements CharSequence {
     private String str;
 
-    ReversedSequence(String str) {
-        this.str = str;
+    ReversedSequence(String text) {
+        StringBuilder s  = new StringBuilder(text);
+        this.str = s.reverse().toString();
     }
 
-    public String reverse() {
-        StringBuilder sb = new StringBuilder(str);
-        return sb.reverse().toString();
-    }
     @Override
     public int length() {
         return str.length();
@@ -23,12 +20,12 @@ public class ReversedSequence implements CharSequence {
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return reverse().substring(start, end);
+        return str.substring(start, end);
     }
 
     @Override
     public String toString() {
-        return reverse();
+        return str;
     }
 
 }
