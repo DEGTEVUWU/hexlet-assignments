@@ -15,5 +15,10 @@ public class App {
             dictionary.set(entry.getValue(), entry.getKey());
         }
     }
+    public static void main(String[] args) {
+        KeyValueStorage storage = new FileKV("src/test/resources/file", Map.of("key", "value"));
+        System.out.println(storage.get("key", "default"));
+        System.out.println(storage.get("key2", "default"));
+    }
 }
 

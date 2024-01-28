@@ -25,10 +25,8 @@ public class InMemoryKV implements KeyValueStorage {
     }
     @Override
     public Map<String, String> toMap() {
-        //Map<String, String> map2 = map;
-        //return map2;
-
-        return new TreeMap<>(map);
+        Map<String, String> map2 = new HashMap<>(map);
+        return map2;
     }
 
 }
