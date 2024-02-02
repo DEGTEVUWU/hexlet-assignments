@@ -1,13 +1,15 @@
 package exercise;
 
 class Address {
-   @NotNull
+    @NotNull
+    @MinLength(minLength = 4)
     private String country;
 
     @NotNull
     private String city;
 
     @NotNull
+    @MinLength
     private String street;
 
     @NotNull
