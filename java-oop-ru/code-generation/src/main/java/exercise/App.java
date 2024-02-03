@@ -11,7 +11,7 @@ import java.util.Collections;
 
 
 public class App {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         User user1 = new User(1, "Iv", "De", 26);
         Car car1 = new Car(1, "bmv", "x5", "black", user1);
         String test1 = car1.serialize();
@@ -34,11 +34,11 @@ public class App {
         System.out.println(car3.getModel()); // "passat"
     }
 
-    public static void save(Path filePath, Car car) throws IOException {
+    public static void save(Path filePath, Car car) throws Exception {
         String dataObject = car.serialize();
         Files.write(filePath, Collections.singleton(dataObject));
     }
-    public static Car extract(Path filePath) throws IOException {
+    public static Car extract(Path filePath) throws Exception {
         String jsonData = Files.readString(filePath).trim();
         Car resultCar =  Car.unserialize(jsonData);
         return resultCar;

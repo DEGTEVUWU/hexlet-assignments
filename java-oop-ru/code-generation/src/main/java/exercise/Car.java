@@ -22,16 +22,15 @@ class Car {
     String color;
     User owner;
 
-    public String serialize() throws JsonProcessingException {
-        final ObjectMapper mapper = new ObjectMapper();
+    public String serialize() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
         String result = mapper.writeValueAsString(this);
         return result;
     }
-    public static Car unserialize(String js) throws IOException {
+    public static Car unserialize(String js) throws Exception {
         Car resultCar = new Car();
         ObjectMapper mapper = new ObjectMapper();
-        resultCar = mapper.readValue(js, Car.class);
-        return  resultCar;
+        return mapper.readValue(js, Car.class);
     }
 
 }
