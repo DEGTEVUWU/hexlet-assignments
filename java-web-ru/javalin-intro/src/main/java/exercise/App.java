@@ -1,10 +1,10 @@
 package exercise;
 
 // BEGIN
+import io.javalin.Javalin;
 
 // END
 
-import io.javalin.Javalin;
 
 public final class App {
 
@@ -14,14 +14,13 @@ public final class App {
         var app = Javalin.create(config -> {
             config.plugins.enableDevLogging();
         });
-        return app;
+        return app.get("/welcome", ctx -> ctx.result("Welcome to Hexlet!"));
         // END
     }
 
     public static void main(String[] args) {
         Javalin app = getApp();
-        app.get("/", ctx -> ctx.redirect("/welcome"));
-        app.get("/welcome", ctx -> ctx.result("Welcome to Hexlet!"));
+        //app.get("/", ctx -> ctx.redirect("/welcome"));
         app.start(7070);
     }
 }
