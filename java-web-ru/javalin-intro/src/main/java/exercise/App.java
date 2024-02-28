@@ -1,0 +1,27 @@
+package exercise;
+
+// BEGIN
+
+// END
+
+import io.javalin.Javalin;
+
+public final class App {
+
+    public static Javalin getApp() {
+
+        // BEGIN
+        var app = Javalin.create(config -> {
+            config.plugins.enableDevLogging();
+        });
+        return app;
+        // END
+    }
+
+    public static void main(String[] args) {
+        Javalin app = getApp();
+        app.get("/", ctx -> ctx.redirect("/welcome"));
+        app.get("/welcome", ctx -> ctx.result("Welcome to Hexlet!"));
+        app.start(7070);
+    }
+}
