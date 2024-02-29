@@ -16,12 +16,9 @@ public final class App {
             config.plugins.enableDevLogging();
         });
 
-        // BEGIN
-        List<Map<String, String>> outputList = new ArrayList<>();
-//        for (var i = 0; i < 5; i++) {
-//            outputList.add(USERS.get(i));
-//        }
+
         app.get("/users", ctx -> {
+            List<Map<String, String>> outputList = new ArrayList<>();
             var pade = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
             var per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
 
@@ -31,8 +28,7 @@ public final class App {
                 outputList.add(USERS.get(indexForStartCicl));
                 indexForStartCicl++;
             }
-//            indexForFinishCicl = 0;
-//            indexForStartCicl = 0;
+
             ctx.json(outputList);
         });
 
