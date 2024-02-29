@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fdf0968b-d6cb-4290-b570-bafae1bfb8e0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/code-generation/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/code-generation/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/code-generation/out/production/classes/exercise/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/code-generation/out/production/classes/exercise/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/code-generation/out/production/classes/exercise/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/code-generation/out/production/classes/exercise/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/code-generation/src/main/java/exercise/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/code-generation/src/main/java/exercise/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/README.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/Example.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/builder/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/builder/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/impl/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/impl/DriveState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/impl/LockedState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/examples/state/impl/StartState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/presentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/src/main/java/exercise/InputTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/src/main/java/exercise/LabelTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/src/main/java/exercise/TagInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/src/test/java/exercise/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/src/test/resources/fixtures/input.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/patterns_01.02.24_10.43.56/src/test/resources/fixtures/label.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/subtyping/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/subtyping/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/subtyping/out/production/classes/exercise/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/subtyping/src/main/java/exercise/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/subtyping/src/main/java/exercise/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java-oop-ru/subtyping/src/test/resources/file" beforeDir="false" afterPath="$PROJECT_DIR$/../../java-oop-ru/subtyping/src/test/resources/file" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2d2Twm1hSbM1RfU3WZBzeg2wuVF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "//wsl$/Ubuntu/home/ivan/Hexlet/hexlet-assignments/java-web-ru/http-session"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="http-session" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="http-session" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdf0968b-d6cb-4290-b570-bafae1bfb8e0" name="Changes" comment="" />
+      <created>1709205413974</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709205413974</updated>
+    </task>
+    <servers />
+  </component>
+</project>
