@@ -2,12 +2,14 @@ package exercise;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import javax.xml.validation.Validator;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Collections;
+//import hexlet.code.Validator;
 
 
 public class App {
@@ -32,6 +34,13 @@ public class App {
         Path path2 = Paths.get("/tmp/file1.json");
         Car car3 = App.extract(path2); // Возвращает инстанс класса Car
         System.out.println(car3.getModel()); // "passat"
+
+        System.out.println("");
+
+        //Validator v = new Validator();
+        //var tes = v.string();
+        //System.out.println(tes.positive().isValid(12));
+
     }
 
     public static void save(Path filePath, Car car) throws Exception {
