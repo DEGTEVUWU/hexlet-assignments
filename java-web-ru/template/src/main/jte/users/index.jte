@@ -28,8 +28,8 @@
         <tbody>
         <tr>
             <div>
-                <td><a href="/users/${user.getId()}">${user.getId()}</a></td>
-                <td>${user.getFirstName()}</td>
+                <td>${user.getId()}</td>
+                <td><a href="/users/${user.getId()}"> ${user.getFirstName()}</a></td>
                 <td>${user.getLastName()}</td>
                 <td>${user.getEmail()}</td>
 
