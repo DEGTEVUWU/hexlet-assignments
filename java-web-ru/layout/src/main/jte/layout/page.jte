@@ -1,7 +1,6 @@
 @import gg.jte.Content
-@param Content mainPage = null
-@param Content userList = null
-@param Content lonelyUser = null
+@param Content content = null
+@param Content footer = null
 
 <html lang="en">
 <head>
@@ -14,20 +13,32 @@
     <title>Hello Hexlet!</title>
 </head>
 <body>
-<div class="header">
-    <a href="/">Главная страница</a>
-    <a href="/users" title="All users, list">Все пользователи</a>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">Все пользователи</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <main>
 
-    ${mainPage}
-    ${userList}
-    ${lonelyUser}
+    ${content}
 
 </main>
-<div class="footer">
-    <a href="https://github.com/DEGTEVUWU">Дёгтев Иван - профиль на GitHub</a>
-</div>
+<footer class="text-center text-lg-start bg-light text-muted">
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        ${footer}
+    </div>
+</footer>
 </body>
 </html>

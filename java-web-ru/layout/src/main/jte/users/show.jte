@@ -2,9 +2,9 @@
 @param UserPage page
 
 @template.layout.page(
-userList = @`
+content  = @`
     <div>
-        ${page.getUser().getFirstName()} ${page.getUser().getLastName()}
+        ${page.getUser().getFirstName()} ${page.getUser().getLastName()} ${page.getUser().getEmail()}
     </div>
 <%--    <table>--%>
 <%--        <caption>ABOUT USER</caption>--%>
@@ -26,4 +26,12 @@ userList = @`
 <%--        </tbody>--%>
 <%--    </table>--%>
     `
+    ,
+footer = @`
+    <div class="footer">
+        <a>Спасибо, что посетили мой сайт! Жду снова!</a>
+        <br>
+        <a href="https://github.com/DEGTEVUWU">Дёгтев Иван - профиль на GitHub</a>
+    </div>
+`
     )

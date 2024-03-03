@@ -5,11 +5,17 @@
 
 
 @template.layout.page(
-    userList = @`
+    content  = @`
 <body>
 <h1>${"Это лист со всеми доступными пользователями!"}</h1>
     @for(var user : page.getUsers())
-    <div>${user.getFirstName()} ${user.getLastName()}</div>
+        <tr>
+            <td>${user.getId()}</td>
+            <td>
+                <a href="/users/${user.getId()}">${user.getFirstName()} ${user.getLastName()}</a>
+                <br>
+            </td>
+        </tr>
         @endfor
 <%--    <table>--%>
 <%--        <caption>Users List</caption>--%>
@@ -34,5 +40,13 @@
 <%--    </table>--%>
 </body>
 
+`
+    ,
+footer = @`
+    <div class="footer">
+        <a>Спасибо, что посетили мой сайт! Жду снова!</a>
+        <br>
+        <a href="https://github.com/DEGTEVUWU">Дёгтев Иван - профиль на GitHub</a>
+    </div>
 `
 )
