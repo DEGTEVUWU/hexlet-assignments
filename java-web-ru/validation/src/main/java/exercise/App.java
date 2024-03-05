@@ -40,7 +40,7 @@ public final class App {
 
         app.post("/articles", ctx -> {
             var title = ctx.formParam("title");
-            var content = ctx.formParam("description");
+            var content = ctx.formParam("content");
             try {
                 ctx.formParamAsClass("title", String.class)
                         .check(value -> value.length() > 2, "Название не должно быть короче двух символов")
