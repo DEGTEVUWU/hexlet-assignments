@@ -7,16 +7,17 @@ public class NamedRoutes {
     }
 
     // BEGIN
-    //маршрут всех пользователей
+    //маршрут для всех постов
     public static String postsPath() {
         return "/posts";
     }
-    // преобразование айди юзера в строку
+
+    //маршрут для конкретного поста
     public static String postPath(Long id) {
         return postPath(String.valueOf(id));
     }
 
-    //маршрут для конкретного юзера
+    //маршрут для конкретного поста
     public static String postPath(String id) {
         return "/posts/" + id;
     }

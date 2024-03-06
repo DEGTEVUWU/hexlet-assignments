@@ -1,6 +1,4 @@
-@import exercise.util.NamedRoutes
-@import gg.jte.Content
-@param Content content
+@import exercise.util.NamedRoutes;
 
 @template.layout.page(
     content = @`

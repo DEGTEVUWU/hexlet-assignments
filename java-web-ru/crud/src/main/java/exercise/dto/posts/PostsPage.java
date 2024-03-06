@@ -9,12 +9,14 @@ import lombok.Setter;
 
 
 // BEGIN
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 public class PostsPage {
-    private List<Post> postsList;
-    private String pageNumber;
+    private List<Post> postList;
+    private Integer pageNumber;
+    private Integer previousPage;
+    private Integer nextPage;
 }
 // END
 

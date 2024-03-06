@@ -5,6 +5,8 @@ import exercise.controller.PostsController;
 import exercise.controller.RootController;
 import exercise.util.NamedRoutes;
 
+import javax.naming.Name;
+
 public final class App {
 
     public static Javalin getApp() {
