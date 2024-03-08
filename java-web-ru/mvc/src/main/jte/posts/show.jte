@@ -14,7 +14,7 @@
             </div>
             <!-- BEGIN -->
             <div class="mx-auto p-4 py-md-5">
-            <a href="${NamedRoutes.postEdit()}">Редактировать пост</a>
+            <a href="/posts/${page.getPost().getId()}/edit">Редактировать пост</a>
             </div>
             <!-- END -->
         </main>

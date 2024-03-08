@@ -1,6 +1,9 @@
 @import exercise.dto.posts.BuildPostPage
+@import exercise.dto.posts.EditPostPage
+@import exercise.dto.posts.PostPage
+@import exercise.repository.PostRepository
 @import exercise.util.NamedRoutes
-@param BuildPostPage page
+@param EditPostPage page
 
 
 @template.layout.page(
@@ -15,17 +18,17 @@ content  = @`
         </ul>
     @endif
 
-    <form action="${NamedRoutes.postsPath("{id}")}" method="post">
+    <form action="/posts/${page.getPost().getId()}" method="post">
         <div>
             <label>
                 Измени название поста
-                <input type="text" name="name" value="${page.getName()}"/>
+                <input type="text" name="name" value="${page.getPost().getName()}"/>
             </label>
         </div>
         <div>
             <label>
                 Измени описание поста
-                <textarea required name="body" rows="6" cols="30" value="${page.getBody()}"></textarea>
+                <textarea required name="body" rows="6" cols="30" value="${page.getPost().getBody()}"></textarea>
             </label>
         </div>
         <input type="submit" value="Изменить" />

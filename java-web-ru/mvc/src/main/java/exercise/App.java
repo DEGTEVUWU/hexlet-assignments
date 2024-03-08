@@ -22,7 +22,7 @@ public final class App {
         app.get(NamedRoutes.postPath("{id}"), PostsController::show);
 
         // BEGIN
-        app.get(NamedRoutes.postEdit(), PostsController::edit);
+        app.get(NamedRoutes.postEdit("{id}"), PostsController::edit);
         app.post(NamedRoutes.postPath("{id}"), PostsController::update);
         // END
 

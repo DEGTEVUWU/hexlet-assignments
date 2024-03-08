@@ -1,6 +1,8 @@
 package exercise.controller;
 
 import java.util.Collections;
+import java.util.Optional;
+
 import exercise.dto.posts.PostsPage;
 import exercise.dto.posts.PostPage;
 import exercise.model.Post;
@@ -21,12 +23,14 @@ public class PostsController {
     }
 
     public static void create(Context ctx) {
+        var name = ctx.formParam("name");
+        var body = ctx.formParam("body");
         try {
-            var name = ctx.formParamAsClass("name", String.class)
+            ctx.formParamAsClass("name", String.class)
                 .check(value -> value.length() >= 2, "Название не должно быть короче двух символов")
                 .get();
 
-            var body = ctx.formParamAsClass("body", String.class)
+            ctx.formParamAsClass("body", String.class)
                 .check(value -> value.length() >= 10, "Пост должен быть не короче 10 символов")
                 .get();
 
@@ -35,8 +39,7 @@ public class PostsController {
             ctx.redirect(NamedRoutes.postsPath());
 
         } catch (ValidationException e) {
-            var name = ctx.formParam("name");
-            var body = ctx.formParam("body");
+
             var page = new BuildPostPage(name, body, e.getErrors());
             ctx.render("posts/build.jte", Collections.singletonMap("page", page)).status(422);
         }
@@ -59,13 +62,16 @@ public class PostsController {
 
     // BEGIN
     public static void edit(Context ctx) {
-//        var id = ctx.pathParamAsClass("id", Long.class).get();
+        var id = ctx.pathParamAsClass("id", Long.class).get();
+        var post = PostRepository.find(id)
+                .orElseThrow(() -> new NotFoundResponse("Post not found"));
+
 //        var post = PostRepository.find(id)
 //                .orElseThrow(() -> new NotFoundResponse("Entity with id = " + id + " not found"));
 //        var page = new PostPage(post);
 //        ctx.render("posts/edit.jte", Collections.singletonMap("page", page));
 
-        var page = new EditPostPage();
+        var page = new EditPostPage(post, null);
         ctx.render("posts/edit.jte", Collections.singletonMap("page", page));
     }
 
@@ -83,14 +89,15 @@ public class PostsController {
 //        PostRepository.save(post);
 //        ctx.redirect(NamedRoutes.postsPath());
 
-
+        String id = ctx.pathParam("id");
+        Optional<Post> post = PostRepository.find(Long.parseLong(id));
         var name = ctx.formParam("name");
         var body = ctx.formParam("body");
 
         try {
             ctx.formParamAsClass("name", String.class)
                     .check(value -> PostRepository.getEntities().stream()
-                                    .noneMatch(post -> post.getName().equals(value)),
+                                    .noneMatch(p -> p.getName().equals(value)),
                             "Пост с таким названием уже существует!")
                     .check(value -> value.length() > 2, "Название поста слишком короткое!")
                     .get();
@@ -98,11 +105,13 @@ public class PostsController {
                     .check(value -> value.length() > 10, "Тело поста слишком короткое!")
                     .get();
 
-            Post post = new Post(name, body);
-            PostRepository.save(post);
+            post.get().setName(name);
+            post.get().setBody(body);
+            //PostRepository.save(post);
             ctx.redirect(NamedRoutes.postsPath());
         } catch (ValidationException e) {
-            var page = new EditPostPage(name, body, e.getErrors());
+            Post wrongPost = new Post(name, body);
+            var page = new EditPostPage(wrongPost, e.getErrors());
             ctx.status(422).render("posts/edit.jte", Collections.singletonMap("page", page));
         }
     }
