@@ -25,11 +25,22 @@ public class PostsController {
 
     public static void index(Context ctx) {
         int pageNumber = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
+        int quantity = 5;
+        int begin = (pageNumber - 1) * quantity;
+        int end = begin + quantity;
+        var posts = PostRepository.getEntities();
         int previousPage = pageNumber == 1 ? 1 : pageNumber - 1;
         int nextPage = pageNumber + 1;
+        List<Post> sliceOfPosts;
 
-        var posts = PostRepository.getEntities().subList((pageNumber - 1) * 5, (pageNumber - 1) * 5 + 5);
-        var page = new PostsPage(posts, pageNumber, previousPage, nextPage);
+        if(begin >= posts.size()) {
+            sliceOfPosts = new ArrayList<>();
+        } else if (end > posts.size()) {
+            sliceOfPosts = posts.subList(begin, posts.size());
+        } else {
+            sliceOfPosts = posts.subList(begin, end);
+        }
+        var page = new PostsPage(sliceOfPosts, pageNumber, previousPage, nextPage);
         ctx.render("posts/index.jte", Collections.singletonMap("page", page));
     }
     // END
