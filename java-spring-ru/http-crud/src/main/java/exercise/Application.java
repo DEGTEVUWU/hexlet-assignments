@@ -29,8 +29,10 @@ public class Application {
     // BEGIN
     //просотр списка всех постов
     @GetMapping("/posts")
-    public List<Post> index(@RequestParam(defaultValue = "10") Integer limit) {
-        return posts.stream().limit(limit).toList();
+    public List<Post> index(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "10") Integer limit) {
+        return posts.stream().skip(1 - page).limit(limit).toList();
     }
     //создание нового поста
     @PostMapping("/posts")
