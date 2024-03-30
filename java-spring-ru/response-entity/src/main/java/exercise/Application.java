@@ -45,22 +45,19 @@ public class Application {
     @PostMapping("/posts")
     public ResponseEntity<Post> create(@RequestBody Post post) {
         posts.add(post);
-        return ResponseEntity.status(201)
+        URI location = URI.create("/posts");
+
+        return ResponseEntity.created(location)
                 .body(post);
     }
 
     //росмотр конкретного поста
     @GetMapping("/posts/{id}")
-    public ResponseEntity<Optional<Post>> show(@PathVariable String id) {
+    public ResponseEntity<Post> show(@PathVariable String id) {
         Optional<Post> post = posts.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst();
-        if (post.isPresent()) {
-            return ResponseEntity.ok()
-                    .body(post);
-        }
-        return ResponseEntity.status(404)
-                .body(post);
+        return ResponseEntity.of(post);
 
     }
     @PutMapping("/posts/{id}")
@@ -68,15 +65,15 @@ public class Application {
         Optional<Post> maybePost = posts.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst();
+        var status = HttpStatus.NO_CONTENT;
         if (maybePost.isPresent()) {
             var post = maybePost.get();
             post.setId(data.getId());
             post.setBody(data.getBody());
             post.setTitle(data.getTitle());
-            return ResponseEntity.ok()
-                    .body(data);
+            status = HttpStatus.OK;
         }
-        return ResponseEntity.status(204)
+        return ResponseEntity.status(status)
                 .body(data);
     }
     // END
