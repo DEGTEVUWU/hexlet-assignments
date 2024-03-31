@@ -50,8 +50,7 @@ public class ProductsController {
         maybyProduct.setPrice(product.getPrice());
         maybyProduct.setTitle(product.getTitle());
 
-        Product updateProduct = productRepository.save(maybyProduct);
-        return updateProduct;
+        return productRepository.save(maybyProduct);
     }
     // END
 
