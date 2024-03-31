@@ -44,14 +44,14 @@ public class ProductsController {
                 .orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found."));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Product> update(@RequestBody Product product, @PathVariable Long id) {
+    public Product update(@RequestBody Product product, @PathVariable Long id) {
         Product maybyProduct = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found."));
         maybyProduct.setPrice(product.getPrice());
         maybyProduct.setTitle(product.getTitle());
 
         Product updateProduct = productRepository.save(maybyProduct);
-        return ResponseEntity.ok(updateProduct);
+        return updateProduct;
     }
     // END
 
