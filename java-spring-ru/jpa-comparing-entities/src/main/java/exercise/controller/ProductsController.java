@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import exercise.model.Product;
 import exercise.repository.ProductRepository;
 import exercise.exception.ResourceNotFoundException;
 import exercise.exception.ResourceAlreadyExistsException;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/products")
@@ -36,9 +39,28 @@ public class ProductsController {
     }
 
     // BEGIN
+    @PostMapping(path = "")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create (@RequestBody Product product) {
+        if (product.getPrice() == null || product.getTitle() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Title and price must not be null");
+        }
+        boolean exist = productRepository.findAll()
+                .stream()
+                .anyMatch(p ->
+                        Objects.equals(p.getTitle(), product.getTitle()) &&
+                        Objects.equals(p.getPrice(), product.getPrice()));
+
+        if(exist) {
+            throw new ResourceAlreadyExistsException("Product with price " + product.getPrice() + " and title "
+                    + product.getTitle() + " already exist");
+        } else {
+            productRepository.save(product);
+        }
+    }
 //    @PostMapping(path = "")
 //    @ResponseStatus(HttpStatus.CREATED)
-//    public Product create(@RequestBody Product product) {
+//    public Product create( @RequestBody Product product) {
 //        Optional<Product> maybyProduct = productRepository.findAll()
 //                .stream()
 //                .filter(p -> p.getPrice().equals(product.getPrice()))
@@ -48,19 +70,20 @@ public class ProductsController {
 //            throw new ResourceAlreadyExistsException("Product with price " + product.getPrice() + " and title "
 //                    + product.getTitle() + " already exist");
 //        }
+////        maybyProduct.get().setId(product.getId());
 //        return productRepository.save(product);
 //    }
 
-    @PostMapping(path = "")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Product> create(@RequestBody Product product) {
-        List<Product> m = productRepository.findAllById(Collections.singleton(product.getId()));
-        if (!m.isEmpty()) {
-//            return ResponseEntity.status(409).body( new ResourceAlreadyExistsException("Error!"));
-            throw new ResourceAlreadyExistsException("Error!");
-        }
-        return ResponseEntity.status(201).body(productRepository.save(product));
-    }
+//    @PostMapping(path = "")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public ResponseEntity<Product> create(@RequestBody Product product) {
+//        List<Product> m = productRepository.findAllById(Collections.singleton(product.getId()));
+//        if (!m.isEmpty()) {
+////            return ResponseEntity.status(409).body( new ResourceAlreadyExistsException("Error!"));
+//            throw new ResourceAlreadyExistsException("Error!");
+//        }
+//        return ResponseEntity.status(201).body(productRepository.save(product));
+//    }
 
 //    @PostMapping(path = "")
 //    @ResponseStatus(HttpStatus.CREATED)
