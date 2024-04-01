@@ -42,59 +42,12 @@ public class ProductsController {
     @PostMapping(path = "")
     @ResponseStatus(HttpStatus.CREATED)
     public void create (@RequestBody Product product) {
-        if (product.getPrice() == null || product.getTitle() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Title and price must not be null");
-        }
-        boolean exist = productRepository.findAll()
-                .stream()
-                .anyMatch(p ->
-                        Objects.equals(p.getTitle(), product.getTitle()) &&
-                        Objects.equals(p.getPrice(), product.getPrice()));
-
-        if(exist) {
-            throw new ResourceAlreadyExistsException("Product with price " + product.getPrice() + " and title "
-                    + product.getTitle() + " already exist");
+        if (productRepository.findAll().contains(product)) {
+            throw new ResourceAlreadyExistsException("Product " + product.getTitle() + " already exists");
         } else {
             productRepository.save(product);
         }
     }
-//    @PostMapping(path = "")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Product create( @RequestBody Product product) {
-//        Optional<Product> maybyProduct = productRepository.findAll()
-//                .stream()
-//                .filter(p -> p.getPrice().equals(product.getPrice()))
-//                .filter(p -> p.getTitle().equals(product.getTitle()))
-//                .findFirst();
-//        if (maybyProduct.isPresent()) {
-//            throw new ResourceAlreadyExistsException("Product with price " + product.getPrice() + " and title "
-//                    + product.getTitle() + " already exist");
-//        }
-////        maybyProduct.get().setId(product.getId());
-//        return productRepository.save(product);
-//    }
-
-//    @PostMapping(path = "")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public ResponseEntity<Product> create(@RequestBody Product product) {
-//        List<Product> m = productRepository.findAllById(Collections.singleton(product.getId()));
-//        if (!m.isEmpty()) {
-////            return ResponseEntity.status(409).body( new ResourceAlreadyExistsException("Error!"));
-//            throw new ResourceAlreadyExistsException("Error!");
-//        }
-//        return ResponseEntity.status(201).body(productRepository.save(product));
-//    }
-
-//    @PostMapping(path = "")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Product create(@RequestBody Product product) {
-//        boolean product2 = productRepository.findById(product.getId())
-//                .isPresent();
-//        if (product2) {
-//            throw new ResourceAlreadyExistsException("E!");
-//        }
-//        return productRepository.save(product);
-//    }
     // END
 
     @GetMapping(path = "/{id}")
