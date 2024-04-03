@@ -46,18 +46,27 @@ public class PostsController {
     private PostDTO toDTO(Post post) {
         var dto = new PostDTO();
         List<Comment> comments = commentRepository.findByPostId(post.getId());
-        List<CommentDTO> commentDTOS = new ArrayList<>();
-        CommentDTO commentDTO = new CommentDTO();
-        for (var comment : comments) {
-            commentDTO.setId(comment.getId());
-            commentDTO.setBody(comment.getBody());
-            commentDTOS.add(commentDTO);
-        }
+        List<CommentDTO> commentsDto = comments.stream()
+                .map(c -> {
+                    var commentDto = new CommentDTO();
+                    commentDto.setId(c.getId());
+                    commentDto.setBody(c.getBody());
+                    return commentDto;
+                })
+                .toList();
+
+//        List<CommentDTO> commentDTOS = new ArrayList<>();
+//        CommentDTO commentDTO = new CommentDTO();
+//        for (var comment : comments) {
+//            commentDTO.setId(comment.getId());
+//            commentDTO.setBody(comment.getBody());
+//            commentDTOS.add(commentDTO);
+//        }
 
         dto.setId(post.getId());
         dto.setTitle(post.getTitle());
         dto.setBody(post.getBody());
-        dto.setComments(commentDTOS);
+        dto.setComments(commentsDto);
 
         return dto;
     }
