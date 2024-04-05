@@ -44,13 +44,13 @@ public class ProductsController {
 
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
-    public Page<ProductDTO> index(ProductParamsDTO params, @RequestParam(defaultValue = "1") int page) {
+    public List<ProductDTO> index(ProductParamsDTO params, @RequestParam(defaultValue = "1") int page) {
         Specification<Product> spec = productSpecification.build(params);
         // Возвращается Page<ProductDTO>
         Page<Product> products = productRepository.findAll(spec, PageRequest.of(page - 1, 10));
         Page<ProductDTO> result = products.map(productMapper::map);
 
-        return result;
+        return result.getContent();
     }
     // END
 
