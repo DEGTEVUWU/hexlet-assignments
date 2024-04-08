@@ -17,12 +17,12 @@ class App {
     public static CompletableFuture<String> unionFiles(String path1, String path2, String resultPath) {
 
         try {
-            Files.exists(Path.of("src/main/resources/" + path1));
+            Files.exists(Path.of(path1));
         } catch (IllegalStateException ex) {
             System.out.println(ex.getMessage());
         }
         try {
-            Files.exists(Path.of("src/main/resources/" + path2));
+            Files.exists(Path.of(path2));
         } catch (IllegalStateException ex) {
             System.out.println(ex.getMessage());
         }
@@ -46,10 +46,9 @@ class App {
 
 
         return readFirstFile.thenCombine(readSecondFile, (first, second) -> {
-            String resultPathSuper = "src/main/resources/" + resultPath;
             String resultString  = first + second;
             try {
-                Files.write(Path.of(resultPathSuper), resultString.getBytes());
+                Files.write(Path.of(resultPath), resultString.getBytes());
                 System.out.println("Строка успешно записана в файл: " + resultPath);
             } catch (IOException e) {
                 System.out.println("Произошла ошибка при записи в файл: " + e.getMessage());
