@@ -102,7 +102,7 @@ public class AppTest {
     @Test
     void testUpdatePerson() throws Exception {
         MockHttpServletResponse response = mockMvc
-                .perform(patch("/people/{id}", 1)
+                .perform(patch("/people/{id}", 2)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"firstName\": \"Ivan\", \"lastName\": \"Degtev\"}"))
                 .andReturn()
@@ -111,12 +111,12 @@ public class AppTest {
         assertThat(response.getStatus()).isEqualTo(200);
 
         MockHttpServletResponse responseNew = mockMvc
-                .perform(get("/people/{id}",1))
+                .perform(get("/people/{id}",2))
                 .andReturn()
                 .getResponse();
 
         assertThat(responseNew.getStatus()).isEqualTo(200);
-        assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
+        assertThat(responseNew.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
         assertThat(responseNew.getContentAsString()).contains("Ivan", "Degtev");
 
     }
