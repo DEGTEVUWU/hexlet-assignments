@@ -2,6 +2,7 @@ package exercise;
 
 import org.junit.jupiter.api.Test;
 
+//import static jdk.jfr.internal.consumer.EventLog.update;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class AppTest {
             .withDatabaseName("dbname")
             .withUsername("sa")
             .withPassword("sa")
-            .withInitScript("src/test/resources/init.sql");
+            .withInitScript("init.sql");
 
     @DynamicPropertySource
     public static void properties(DynamicPropertyRegistry registry) {
@@ -56,20 +57,20 @@ public class AppTest {
     @Test
     void testCreatePerson() throws Exception {
         MockHttpServletResponse responsePost = mockMvc
-            .perform(
-                post("/people")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content("{\"firstName\": \"Jackson\", \"lastName\": \"Bind\"}")
-            )
-            .andReturn()
-            .getResponse();
+                .perform(
+                        post("/people")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("{\"firstName\": \"Jackson\", \"lastName\": \"Bind\"}")
+                )
+                .andReturn()
+                .getResponse();
 
         assertThat(responsePost.getStatus()).isEqualTo(200);
 
         MockHttpServletResponse response = mockMvc
-            .perform(get("/people"))
-            .andReturn()
-            .getResponse();
+                .perform(get("/people"))
+                .andReturn()
+                .getResponse();
 
         assertThat(response.getStatus()).isEqualTo(200);
         assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());

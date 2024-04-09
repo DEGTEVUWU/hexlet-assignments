@@ -3,10 +3,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="PLATFORM" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="corretto-21 (WSL)" />
+        <option name="gradleJvm" value="corretto-20 (WSL) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
